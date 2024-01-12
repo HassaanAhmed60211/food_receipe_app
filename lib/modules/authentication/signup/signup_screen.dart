@@ -78,11 +78,31 @@ class SignupPage extends StatelessWidget {
               Spaces.mid,
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
-                child: customTextWidget(
-                    text: "Accept terms & Condition",
-                    color: const Color(0xFFFF9B00),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: 17,
+                      height: 17,
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                              width: 1, color: Color(0xFFFF9B00)),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                    ),
+                    Spaces.smallw,
+                    customTextWidget(
+                        text: "Accept terms & Condition",
+                        color: const Color(0xFFFF9B00),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400),
+                  ],
+                ),
               ),
               Spaces.large,
               customElevatedBtnWidget(
@@ -158,6 +178,7 @@ class SignupPage extends StatelessWidget {
               ),
               Spaces.large,
               Align(alignment: Alignment.center, child: signUpText(context)),
+              Spaces.large,
             ],
           ),
         ),
