@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
-import 'package:food_receipe_app/modules/authentication/signup/signup_screen.dart';
+import 'package:food_receipe_app/modules/authentication/login/login_screen.dart';
 
-Widget loginText(BuildContext context) {
+Widget signUpText(BuildContext context) {
   return GestureDetector(
     onTap: () {
-      context.pushScreenTo(SignupPage());
+      context.pushScreenTo(LoginPage());
     },
     child: const Text.rich(
       TextSpan(
         children: [
           TextSpan(
-            text: 'Don’t have an account? ',
+            text: 'Already a member? ',
             style: TextStyle(
               color: Colors.black,
               fontSize: 14,
@@ -21,7 +21,7 @@ Widget loginText(BuildContext context) {
             ),
           ),
           TextSpan(
-            text: 'Sign up',
+            text: 'Sign In',
             style: TextStyle(
               color: Color(0xFFFF9B00),
               fontSize: 14,

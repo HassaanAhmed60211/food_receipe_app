@@ -21,124 +21,124 @@ class LoginPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Spaces.extrasmall,
-            customTextWidget(
-                text: "Hello,",
-                color: ColorConstants.blackColor,
-                fontSize: 30,
-                fontWeight: FontWeight.w600),
-            Spaces.smallh,
-            customTextWidget(
-                text: "Welcome Back!",
-                color: ColorConstants.blackColor,
-                fontSize: 20,
-                fontWeight: FontWeight.w400),
-            Spaces.large,
-            customTextWidget(
-                text: "Email",
-                color: ColorConstants.blackColor,
-                fontSize: 15,
-                fontWeight: FontWeight.w400),
-            Spaces.smallh,
-            customTextField(hintText: 'Enter Email', controller: email),
-            Spaces.large,
-            customTextWidget(
-                text: "Enter Password",
-                color: ColorConstants.blackColor,
-                fontSize: 15,
-                fontWeight: FontWeight.w400),
-            Spaces.smallh,
-            customTextField(hintText: 'Enter Password', controller: password),
-            Spaces.mid,
-            Padding(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: customTextWidget(
-                  text: "Forget Password?",
-                  color: const Color(0xFFFF9B00),
-                  fontSize: 12,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Spaces.extrasmall,
+              customTextWidget(
+                  text: "Hello,",
+                  color: ColorConstants.blackColor,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w600),
+              Spaces.smallh,
+              customTextWidget(
+                  text: "Welcome Back!",
+                  color: ColorConstants.blackColor,
+                  fontSize: 20,
                   fontWeight: FontWeight.w400),
-            ),
-            Spaces.large,
-            customElevatedBtnWidget(
-                width: context.screenWidth,
-                height: 60,
-                child: Center(
-                  child: SizedBox(
-                    width: 130,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        customTextWidget(
-                            text: 'Sign In',
+              Spaces.large,
+              customTextWidget(
+                  text: "Email",
+                  color: ColorConstants.blackColor,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400),
+              Spaces.smallh,
+              customTextField(hintText: 'Enter Email', controller: email),
+              Spaces.large,
+              customTextWidget(
+                  text: "Enter Password",
+                  color: ColorConstants.blackColor,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400),
+              Spaces.smallh,
+              customTextField(hintText: 'Enter Password', controller: password),
+              Spaces.mid,
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: customTextWidget(
+                    text: "Forget Password?",
+                    color: const Color(0xFFFF9B00),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400),
+              ),
+              Spaces.large,
+              customElevatedBtnWidget(
+                  width: context.screenWidth,
+                  height: 60,
+                  child: Center(
+                    child: SizedBox(
+                      width: 130,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          customTextWidget(
+                              text: 'Sign In',
+                              color: ColorConstants.whiteColor,
+                              fontNameP: 'Poppins',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
+                          const Icon(
+                            Icons.arrow_forward,
                             color: ColorConstants.whiteColor,
-                            fontNameP: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
-                        const Icon(
-                          Icons.arrow_forward,
-                          color: ColorConstants.whiteColor,
-                          size: 25,
-                        )
-                      ],
+                            size: 25,
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                func: () {
-                  context.pushScreenTo(LoginPage());
-                }),
-            Spaces.mid,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  width: 50,
-                  child: Divider(
-                    color: Color(0xFFD9D9D9),
-                    thickness: 0.6,
+                  func: () {}),
+              Spaces.mid,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    width: 50,
+                    child: Divider(
+                      color: Color(0xFFD9D9D9),
+                      thickness: 0.6,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: customTextWidget(
-                      text: 'Or Sign in With',
-                      color: const Color(0xFFD9D9D9),
-                      fontNameP: 'Poppins',
-                      fontSize: 11,
-                      fontWeight: FontWeight.w500),
-                ),
-                const SizedBox(
-                  width: 50,
-                  child: Divider(
-                    color: Color(0xFFD9D9D9),
-                    thickness: 0.6,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: customTextWidget(
+                        text: 'Or Sign in With',
+                        color: const Color(0xFFD9D9D9),
+                        fontNameP: 'Poppins',
+                        fontSize: 11,
+                        fontWeight: FontWeight.w500),
                   ),
-                ),
-              ],
-            ),
-            Spaces.mid,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                iconsWidget(Brand(
-                  Brands.google,
-                  size: 10,
-                )),
-                Spaces.midw,
-                iconsWidget(Brand(
-                  Brands.facebook,
-                  size: 10,
-                ))
-              ],
-            ),
-            Spaces.large,
-            Align(alignment: Alignment.center, child: signUpText()),
-          ],
+                  const SizedBox(
+                    width: 50,
+                    child: Divider(
+                      color: Color(0xFFD9D9D9),
+                      thickness: 0.6,
+                    ),
+                  ),
+                ],
+              ),
+              Spaces.mid,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  iconsWidget(Brand(
+                    Brands.google,
+                    size: 10,
+                  )),
+                  Spaces.midw,
+                  iconsWidget(Brand(
+                    Brands.facebook,
+                    size: 10,
+                  ))
+                ],
+              ),
+              Spaces.large,
+              Align(alignment: Alignment.center, child: loginText(context)),
+            ],
+          ),
         ),
       ),
     );
