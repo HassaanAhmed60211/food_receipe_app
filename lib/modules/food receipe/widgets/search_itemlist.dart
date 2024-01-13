@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/bottom_text.dart';
-import 'package:food_receipe_app/modules/food%20receipe/widgets/model/recipe_item_model.dart';
+import 'package:food_receipe_app/modules/food%20receipe/model/recipe_item_model.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/top_rating.dart';
 
 class SearchItemList extends StatelessWidget {

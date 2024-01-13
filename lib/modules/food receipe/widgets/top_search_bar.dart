@@ -4,6 +4,7 @@ import 'package:food_receipe_app/configs/constants/assets_configs/assets_constan
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/core/core_widgets/custom_field.dart';
+import 'package:food_receipe_app/modules/food%20receipe/widgets/bottom_sheet.dart';
 
 // ignore: must_be_immutable
 class TopSearchBar extends StatelessWidget {
@@ -34,7 +35,7 @@ class TopSearchBar extends StatelessWidget {
           const Spacer(),
           InkWell(
               onTap: () {
-                // context.push(RouterNames.filterPage);
+                filterBottomSheet(context);
               },
               child: Container(
                 height: 55,

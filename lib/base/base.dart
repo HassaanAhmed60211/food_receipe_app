@@ -3,6 +3,7 @@ import 'package:food_receipe_app/modules/food%20receipe/search_result.dart';
 import 'package:food_receipe_app/modules/food%20receipe/search_recipe.dart';
 import 'package:food_receipe_app/modules/saved%20recipe/saved_recipe.dart';
 import 'package:food_receipe_app/modules/saved%20recipe/widgets/saved_itemlist.dart';
+import 'package:food_receipe_app/modules/splash/splash_screen.dart';
 
 class FoodReceipeApp extends StatelessWidget {
   const FoodReceipeApp({super.key});
@@ -14,7 +15,7 @@ class FoodReceipeApp extends StatelessWidget {
         useMaterial3: true,
         indicatorColor: Colors.white,
       ),
-      home: SavedRecipePage(),
+      home: const SearchReceipePage(),
     );
   }
 }
