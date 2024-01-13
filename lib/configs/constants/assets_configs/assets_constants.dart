@@ -16,4 +16,7 @@ class IconsString {
   // ignore: non_constant_identifier_names
   static String kitchen_cap =
       '${AssetsConstants.iconsConstantsGlobal}kitchen_cap.png';
+  // ignore: non_constant_identifier_names
+  static String filter_icon =
+      '${AssetsConstants.iconsConstantsGlobal}filter_icon.svg';
 }

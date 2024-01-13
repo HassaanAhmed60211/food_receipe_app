@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Widget customTextField({
   bool isReadOnly = false,
@@ -63,12 +64,12 @@ Widget customTextField({
           fontSize: suffixfontSize,
           fontWeight: fontWeight,
           color: suffixColor,
+          fontFamily: GoogleFonts.poppins().fontFamily,
         ),
         hintStyle: TextStyle(
             fontSize: fontSize,
-            color: const Color(
-              0xFFABB3BB,
-            )),
+            fontFamily: GoogleFonts.poppins().fontFamily,
+            color: const Color(0xFFABB3BB)),
         hintText: hintText,
         border: InputBorder.none,
       ),
