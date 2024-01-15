@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/core/core_widgets/core_text.dart';
-import 'package:food_receipe_app/modules/food%20receipe/widgets/time_list.dart';
 
 class CategoryList extends StatelessWidget {
   const CategoryList({super.key});
@@ -18,7 +17,7 @@ class CategoryList extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(right: 10),
                 child: Container(
-                  width: 85,
+                  width: 96,
                   height: 27,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),

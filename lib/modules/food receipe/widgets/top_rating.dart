@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/core/core_widgets/core_text.dart';
 
 class TopRating extends StatelessWidget {
-  const TopRating({super.key});
+  final double? top;
+  final double? right;
+  final double? width;
+  final double? height;
+  final double? starSize;
+  final double? fontSize;
+  const TopRating(
+      {super.key,
+      this.top,
+      this.right,
+      this.width,
+      this.height,
+      this.starSize,
+      this.fontSize});
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        top: 10,
-        right: 10,
+        top: top ?? 10,
+        right: right ?? 10,
         child: Container(
-          width: 37,
-          height: 16,
+          width: width ?? context.screenWidth * 0.12,
+          height: height ?? 22,
           padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
           decoration: ShapeDecoration(
-            color: Color(0xFFFFE1B3),
+            color: const Color(0xFFFFE1B3),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
@@ -25,20 +39,18 @@ class TopRating extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                  width: 8,
-                  height: 8,
                   clipBehavior: Clip.none,
-                  child: const Icon(
+                  child: Icon(
                     Icons.star,
                     color: Colors.amber,
-                    size: 8,
+                    size: starSize ?? 10,
                   )),
               const SizedBox(width: 3),
               customTextWidget(
                   text: '4.0',
                   fontWeight: FontWeight.w600,
                   textAlign: TextAlign.right,
-                  fontSize: 7.0),
+                  fontSize: fontSize ?? 10.0),
             ],
           ),
         ));

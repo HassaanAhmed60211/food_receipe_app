@@ -18,7 +18,7 @@ class TopSearchBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
-            width: context.screenWidth * 0.66,
+            width: context.screenWidth * 0.6,
             child: customTextField(
               height: 55,
               hintText: 'Search recipe',

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
-import 'package:food_receipe_app/core/core_widgets/core_text.dart';
 import 'package:food_receipe_app/core/core_widgets/widget_links.dart';
-import 'package:food_receipe_app/modules/food%20receipe/widgets/bottom_text.dart';
 import 'package:food_receipe_app/modules/food%20receipe/model/recipe_item_model.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/top_rating.dart';
 import 'package:food_receipe_app/modules/saved%20recipe/widgets/bottom_txtrecipe.dart';
@@ -16,22 +14,22 @@ class SavedItemList extends StatelessWidget {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: receipeData.length,
+        itemCount: savedRecipe.length,
         itemBuilder: ((context, index) {
-          var item = receipeData[index];
+          var item = savedRecipe[index];
           return Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: Container(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               width: context.screenWidth,
-              height: 150,
+              height: 160,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
                     image: AssetImage(
                       item.image,
                     ),
-                    fit: BoxFit.fitWidth),
+                    fit: BoxFit.cover),
               ),
               child: Container(
                 width: 150,
@@ -83,8 +81,8 @@ class SavedItemList extends StatelessWidget {
                                     fontWeight: FontWeight.w400),
                                 Spaces.smallw,
                                 Container(
-                                  width: 19,
-                                  height: 19,
+                                  width: 21,
+                                  height: 21,
                                   decoration: ShapeDecoration(
                                     color: Colors.white,
                                     shape: RoundedRectangleBorder(
@@ -94,7 +92,7 @@ class SavedItemList extends StatelessWidget {
                                   child: Center(
                                       child: Image.asset(
                                     'assets/icons/bookmark.png',
-                                    height: 16,
+                                    height: 14,
                                   )),
                                 )
                               ],
@@ -111,3 +109,14 @@ class SavedItemList extends StatelessWidget {
         }));
   }
 }
+
+List<ReceipeModel> savedRecipe = [
+  ReceipeModel('Traditional spare ribs baked', 'By Chef John',
+      'assets/images/receipe_handi.png'),
+  ReceipeModel('spice roasted chicken with flavored rice', 'By Mark Kelvin',
+      'assets/images/receipe_salan.png'),
+  ReceipeModel('Spicy fried rice mix chicken bali', 'By Spicy Nelly',
+      'assets/images/receipe_mutton.png'),
+  ReceipeModel('Lamb chops with fruity couscous and mint', 'By Spicy Nelly',
+      'assets/images/recipe_kabab.png'),
+];

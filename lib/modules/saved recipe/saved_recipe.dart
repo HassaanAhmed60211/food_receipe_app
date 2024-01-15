@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_receipe_app/core/core_widgets/global_appbar.dart';
 import 'package:food_receipe_app/core/core_widgets/spaces.dart';
-import 'package:food_receipe_app/modules/food%20receipe/widgets/search_itemlist.dart';
 import 'package:food_receipe_app/modules/saved%20recipe/widgets/saved_itemlist.dart';
 
 class SavedRecipePage extends StatelessWidget {

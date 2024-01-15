@@ -36,7 +36,7 @@ class SearchResultPage extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                   customTextWidget(
                       text: '255 results',
-                      color: Color(0xFFA9A9A9),
+                      color: const Color(0xFFA9A9A9),
                       fontSize: 11,
                       fontWeight: FontWeight.w400),
                 ],

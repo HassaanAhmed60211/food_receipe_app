@@ -31,8 +31,8 @@ Widget customTextField({
         border: Border.all(
           color: colorBorder,
         )),
-    padding: const EdgeInsets.symmetric(
-      horizontal: 10,
+    padding: const EdgeInsets.only(
+      left: 15,
     ),
     child: TextField(
       // maxLength: maxLengthText,
@@ -71,6 +71,7 @@ Widget customTextField({
             fontFamily: GoogleFonts.poppins().fontFamily,
             color: const Color(0xFFABB3BB)),
         hintText: hintText,
+
         border: InputBorder.none,
       ),
     ),

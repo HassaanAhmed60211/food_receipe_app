@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_receipe_app/core/core_widgets/core_text.dart';
 import 'package:food_receipe_app/core/core_widgets/global_appbar.dart';
 import 'package:food_receipe_app/core/core_widgets/spaces.dart';
-import 'package:food_receipe_app/modules/food%20receipe/widgets/bottom_text.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/search_itemlist.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/top_search_bar.dart';
 
