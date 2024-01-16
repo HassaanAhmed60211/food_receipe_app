@@ -13,20 +13,24 @@ class GlobalAppBar extends StatelessWidget {
     super.key,
     this.title,
     this.isDot = false,
+    this.isBackButton = false,
   });
   final String? title;
   final bool? isDot;
+  final bool? isBackButton;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
-      leading: IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.arrow_back),
-        color: ColorConstants.blackColor,
-      ),
+      leading: isBackButton == false
+          ? IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.arrow_back),
+              color: ColorConstants.blackColor,
+            )
+          : Container(),
       backgroundColor: Colors.transparent,
       centerTitle: true,
       title: customTextWidget(
