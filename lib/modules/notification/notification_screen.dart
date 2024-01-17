@@ -15,6 +15,7 @@ class NotificationPage extends StatelessWidget {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: GlobalAppBar(
+          isBackButton: true,
           title: 'Notifications',
         ),
       ),

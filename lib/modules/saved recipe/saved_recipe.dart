@@ -12,6 +12,7 @@ class SavedRecipePage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: GlobalAppBar(
+          isBackButton: true,
           title: 'Saved recipes',
         ),
       ),

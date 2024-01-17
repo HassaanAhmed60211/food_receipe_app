@@ -3,7 +3,7 @@ import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/modules/authentication/login/widgets/icon_widget.dart';
 import 'package:food_receipe_app/modules/authentication/login/widgets/signup_text.dart';
-import 'package:food_receipe_app/modules/dashboard/dashboard_screen.dart';
+import 'package:food_receipe_app/modules/bottomnav/bottom_nav.dart';
 import 'package:icons_plus/icons_plus.dart';
 // import '';
 import '/core/core_widgets/widget_links.dart';
@@ -90,7 +90,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   func: () {
-                    context.pushScreenTo(const DashboardPage());
+                    context.pushScreenTo(UserNavBar());
                   }),
               Spaces.mid,
               Row(

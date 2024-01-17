@@ -2,10 +2,10 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/core/core_widgets/widget_links.dart';
-import 'package:food_receipe_app/modules/notification/widgets/unread_notify.dart';
 import 'package:food_receipe_app/modules/profile/widgets/photo_list.dart';
 import 'package:food_receipe_app/modules/profile/widgets/profile_text.dart';
 import 'package:food_receipe_app/modules/profile/widgets/recipe_item.dart';
+import 'package:food_receipe_app/modules/reviews/widgets/review_list.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -107,7 +107,7 @@ class ProfilePage extends StatelessWidget {
                   children: <Widget>[
                     RecipeItems(),
                     PhotoList(),
-                    UnreadNotifyPage(),
+                    SingleChildScrollView(child: ReviewList()),
                   ],
                 ),
               ),

@@ -91,15 +91,16 @@ class _IngridentPageState extends State<IngridentPage> {
                 Spaces.smallh,
                 ButtonsTabBar(
                     unselectedDecoration: BoxDecoration(
-                        color: ColorConstants.primaryColor,
+                        color: ColorConstants.whiteColor,
                         borderRadius: BorderRadius.circular(18)),
                     height: 55,
                     contentPadding: const EdgeInsets.symmetric(horizontal: 54),
-                    backgroundColor: Colors.transparent,
+                    backgroundColor: ColorConstants.primaryColor,
                     unselectedLabelStyle: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                    labelStyle: const TextStyle(
                         color: ColorConstants.primaryColor,
+                        fontWeight: FontWeight.bold),
+                    labelStyle: const TextStyle(
+                        color: ColorConstants.whiteColor,
                         fontWeight: FontWeight.bold),
                     tabs: const [
                       Tab(

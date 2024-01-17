@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/bottom_text.dart';
 import 'package:food_receipe_app/modules/food%20receipe/model/recipe_item_model.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/top_rating.dart';
+import 'package:food_receipe_app/modules/ingrident/ingrident_screen.dart';
 
 class SearchItemList extends StatelessWidget {
   const SearchItemList({super.key});
@@ -16,37 +18,42 @@ class SearchItemList extends StatelessWidget {
             crossAxisCount: 2, crossAxisSpacing: 18.0, mainAxisSpacing: 18.0),
         itemBuilder: ((context, index) {
           var item = receipeData[index];
-          return Container(
-            width: 150,
-            height: 150,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(
-                    item.image,
-                  ),
-                  fit: BoxFit.cover),
-            ),
+          return GestureDetector(
+            onTap: () {
+              context.pushScreenTo(const IngridentPage());
+            },
             child: Container(
               width: 150,
               height: 150,
-              decoration: ShapeDecoration(
-                gradient: LinearGradient(
-                  begin: const Alignment(0.00, -1.00),
-                  end: const Alignment(0, 1),
-                  colors: [Colors.black.withOpacity(0), Colors.black],
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                      item.image,
+                    ),
+                    fit: BoxFit.cover),
               ),
-              child: Stack(
-                children: [
-                  const TopRating(),
-                  BottomTextTitle(
-                    title: item.title,
-                    subTitle: item.subTitle,
+              child: Container(
+                width: 150,
+                height: 150,
+                decoration: ShapeDecoration(
+                  gradient: LinearGradient(
+                    begin: const Alignment(0.00, -1.00),
+                    end: const Alignment(0, 1),
+                    colors: [Colors.black.withOpacity(0), Colors.black],
                   ),
-                ],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    const TopRating(),
+                    BottomTextTitle(
+                      title: item.title,
+                      subTitle: item.subTitle,
+                    ),
+                  ],
+                ),
               ),
             ),
           );

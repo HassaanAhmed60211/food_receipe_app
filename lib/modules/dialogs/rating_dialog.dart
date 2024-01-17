@@ -10,7 +10,7 @@ Future ratingDialog(BuildContext context) {
       builder: (context) {
         return Dialog(
           child: Container(
-            height: context.screenHeight * 0.19,
+            height: context.screenHeight * 0.22,
             width: context.screenWidth,
             decoration: const BoxDecoration(
                 color: ColorConstants.whiteColor,

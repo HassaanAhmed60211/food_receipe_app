@@ -26,7 +26,9 @@ class GlobalAppBar extends StatelessWidget {
       automaticallyImplyLeading: false,
       leading: isBackButton == false
           ? IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: const Icon(Icons.arrow_back),
               color: ColorConstants.blackColor,
             )

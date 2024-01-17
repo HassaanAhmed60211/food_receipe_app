@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/modules/authentication/login/widgets/icon_widget.dart';
+import 'package:food_receipe_app/modules/authentication/signup/signup_controller.dart';
 import 'package:food_receipe_app/modules/authentication/signup/widgets/signup_text.dart';
-import 'package:food_receipe_app/modules/dashboard/dashboard_screen.dart';
+import 'package:food_receipe_app/modules/bottomnav/bottom_nav.dart';
 import 'package:icons_plus/icons_plus.dart';
 // import '';
 import '/core/core_widgets/widget_links.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends ConsumerWidget {
   SignupPage({super.key});
   final TextEditingController name = TextEditingController();
 
@@ -17,7 +19,9 @@ class SignupPage extends StatelessWidget {
   final TextEditingController cfpassword = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final signupRead = ref.read(signupProvider);
+    final signupWatch = ref.watch(signupProvider);
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: ColorConstants.whiteColor,
@@ -83,19 +87,19 @@ class SignupPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      width: 17,
-                      height: 17,
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                              width: 1, color: Color(0xFFFF9B00)),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+                    Checkbox(
+                      side: const BorderSide(
+                        width: 1.3,
+                        color: Color(0xFFFF9B00),
                       ),
+                      activeColor: const Color(0xFFFF9B00),
+                      checkColor: ColorConstants.whiteColor,
+                      hoverColor: const Color(0xFFFF9B00),
+                      value: signupWatch.isCheckBox,
+                      onChanged: (bool? value) {
+                        signupRead.checkBoxUpdate(value!);
+                      },
                     ),
-                    Spaces.smallw,
                     customTextWidget(
                         text: "Accept terms & Condition",
                         color: const Color(0xFFFF9B00),
@@ -130,7 +134,7 @@ class SignupPage extends StatelessWidget {
                     ),
                   ),
                   func: () {
-                    context.pushScreenTo(const DashboardPage());
+                    context.pushScreenTo(UserNavBar());
                   }),
               Spaces.mid,
               Row(
