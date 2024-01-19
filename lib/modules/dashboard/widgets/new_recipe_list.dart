@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/core/core_widgets/core_text.dart';
 import 'package:food_receipe_app/core/core_widgets/spaces.dart';
-import 'package:food_receipe_app/modules/dashboard/model/product_model.dart';
+import 'package:food_receipe_app/modules/dashboard/dashboard_provider.dart';
 
-class NewRecipeList extends StatelessWidget {
+class NewRecipeList extends ConsumerWidget {
   const NewRecipeList({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final dbRead = ref.read(dbProvider);
     return SizedBox(
       height: context.screenHeight * 0.24,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: productList.length,
+        itemCount: dbRead.newRecipeList.length,
         itemBuilder: (context, index) {
-          var item = productList[index];
+          var item = dbRead.newRecipeList[index];
           return Padding(
             padding: const EdgeInsets.only(right: 15.0),
             child: SizedBox(
@@ -147,18 +149,3 @@ class NewRecipeList extends StatelessWidget {
     );
   }
 }
-
-List<RecipeModel> productList = [
-  RecipeModel(
-      'Steak with tomato sauce and bulgur rice.',
-      '20 Mins',
-      'assets/images/new_recipe.png',
-      'assets/images/review_image.png',
-      'By James Milner'),
-  RecipeModel(
-      'Pilaf sweet with lamb-and-raisins',
-      '15 Mins',
-      'assets/images/new_recipe.png',
-      'assets/images/recipe_image.png',
-      'By Laura wilson'),
-];

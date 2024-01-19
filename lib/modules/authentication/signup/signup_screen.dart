@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/modules/authentication/login/widgets/icon_widget.dart';
-import 'package:food_receipe_app/modules/authentication/signup/signup_controller.dart';
+import 'package:food_receipe_app/modules/authentication/signup/signup_provider.dart';
 import 'package:food_receipe_app/modules/authentication/signup/widgets/signup_text.dart';
 import 'package:food_receipe_app/modules/bottomnav/bottom_nav.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -12,11 +12,6 @@ import '/core/core_widgets/widget_links.dart';
 
 class SignupPage extends ConsumerWidget {
   SignupPage({super.key});
-  final TextEditingController name = TextEditingController();
-
-  final TextEditingController email = TextEditingController();
-  final TextEditingController password = TextEditingController();
-  final TextEditingController cfpassword = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -53,7 +48,8 @@ class SignupPage extends ConsumerWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w400),
               Spaces.smallh,
-              customTextField(hintText: 'Enter Name', controller: name),
+              customTextField(
+                  hintText: 'Enter Name', controller: signupRead.name),
               Spaces.large,
               customTextWidget(
                   text: "Email",
@@ -61,7 +57,8 @@ class SignupPage extends ConsumerWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w400),
               Spaces.smallh,
-              customTextField(hintText: 'Enter Email', controller: email),
+              customTextField(
+                  hintText: 'Enter Email', controller: signupRead.email),
               Spaces.large,
               customTextWidget(
                   text: "Enter Password",
@@ -69,7 +66,8 @@ class SignupPage extends ConsumerWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w400),
               Spaces.smallh,
-              customTextField(hintText: 'Enter Password', controller: password),
+              customTextField(
+                  hintText: 'Enter Password', controller: signupRead.password),
               Spaces.large,
               customTextWidget(
                   text: "Confirm Password",
@@ -78,7 +76,8 @@ class SignupPage extends ConsumerWidget {
                   fontWeight: FontWeight.w400),
               Spaces.smallh,
               customTextField(
-                  hintText: 'Retype Password', controller: cfpassword),
+                  hintText: 'Retype Password',
+                  controller: signupRead.cfpassword),
               Spaces.mid,
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),

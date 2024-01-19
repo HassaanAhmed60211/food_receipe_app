@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
+import 'package:food_receipe_app/modules/authentication/login/login_provider.dart';
 import 'package:food_receipe_app/modules/authentication/login/widgets/icon_widget.dart';
 import 'package:food_receipe_app/modules/authentication/login/widgets/signup_text.dart';
 import 'package:food_receipe_app/modules/bottomnav/bottom_nav.dart';
@@ -8,14 +10,12 @@ import 'package:icons_plus/icons_plus.dart';
 // import '';
 import '/core/core_widgets/widget_links.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-
-  final TextEditingController email = TextEditingController();
-  final TextEditingController password = TextEditingController();
+class LoginPage extends ConsumerWidget {
+  const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final loginRead = ref.read(loginProvider);
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: ColorConstants.whiteColor,
@@ -46,7 +46,8 @@ class LoginPage extends StatelessWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w400),
               Spaces.smallh,
-              customTextField(hintText: 'Enter Email', controller: email),
+              customTextField(
+                  hintText: 'Enter Email', controller: loginRead.email),
               Spaces.large,
               customTextWidget(
                   text: "Enter Password",
@@ -54,7 +55,8 @@ class LoginPage extends StatelessWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w400),
               Spaces.smallh,
-              customTextField(hintText: 'Enter Password', controller: password),
+              customTextField(
+                  hintText: 'Enter Password', controller: loginRead.password),
               Spaces.mid,
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),

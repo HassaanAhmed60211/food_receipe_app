@@ -1,26 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
+import 'package:food_receipe_app/modules/food%20receipe/fdrecipe_provider.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/bottom_text.dart';
-import 'package:food_receipe_app/modules/food%20receipe/model/recipe_item_model.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/top_rating.dart';
 import 'package:food_receipe_app/modules/ingrident/ingrident_screen.dart';
 
-class SearchItemList extends StatelessWidget {
+class SearchItemList extends ConsumerWidget {
   const SearchItemList({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final frWatch = ref.watch(frProvider);
+
     return GridView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: receipeData.length,
+        itemCount: frWatch.searchData.isEmpty
+            ? frWatch.receipeData.length
+            : frWatch.searchData.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, crossAxisSpacing: 18.0, mainAxisSpacing: 18.0),
         itemBuilder: ((context, index) {
-          var item = receipeData[index];
+          var item = frWatch.searchData.isEmpty
+              ? frWatch.receipeData[index]
+              : frWatch.searchData[index];
           return GestureDetector(
             onTap: () {
-              context.pushScreenTo(const IngridentPage());
+              context.pushScreenTo(IngridentPage(
+                img: item.image,
+                title: item.title,
+                name: item.subTitle,
+              ));
             },
             child: Container(
               width: 150,

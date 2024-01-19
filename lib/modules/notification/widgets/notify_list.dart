@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/core/core_widgets/core_text.dart';
 import 'package:food_receipe_app/core/core_widgets/spaces.dart';
-import 'package:food_receipe_app/modules/notification/model/notification_model.dart';
+import 'package:food_receipe_app/modules/notification/notification_provider.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-class NotifyListToday extends StatelessWidget {
+class NotifyListToday extends ConsumerWidget {
   const NotifyListToday({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final btmRead = ref.read(notifyProvider);
+
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: notificationList.length,
+      itemCount: btmRead.notificationList.length,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        var item = notificationList[index];
+        var item = btmRead.notificationList[index];
         return Padding(
           padding: const EdgeInsets.only(bottom: 21.0),
           child: Container(
@@ -98,18 +101,3 @@ class NotifyListToday extends StatelessWidget {
     );
   }
 }
-
-List<NotificationModel> notificationList = [
-  NotificationModel(
-      'New Recipe Alert!',
-      'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum',
-      '10 mins ago'),
-  NotificationModel(
-      'New Recipe Alert!',
-      'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum',
-      '30 mins ago'),
-  NotificationModel(
-      'Save Recipe Alert!',
-      'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum',
-      '30 mins ago'),
-];

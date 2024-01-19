@@ -11,12 +11,11 @@ import 'package:food_receipe_app/modules/food%20receipe/widgets/time_list.dart';
 void filterBottomSheet(BuildContext context) {
   showModalBottomSheet(
       isScrollControlled: true,
-      
       backgroundColor: ColorConstants.whiteColor,
       context: context,
       builder: (BuildContext bc) {
         return SizedBox(
-            height: 500,
+            height: context.screenHeight * 0.68,
             width: context.screenWidth,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
@@ -57,8 +56,6 @@ void filterBottomSheet(BuildContext context) {
                   Spaces.mid,
                   const CategoryList(),
                   Spaces.large,
-                  Spaces.large,
-                  Spaces.large,
                   Align(
                     alignment: Alignment.center,
                     child: customElevatedBtnWidget(
@@ -72,7 +69,9 @@ void filterBottomSheet(BuildContext context) {
                               fontSize: 14,
                               fontWeight: FontWeight.w600),
                         ),
-                        func: () {}),
+                        func: () {
+                          Navigator.pop(context);
+                        }),
                   )
                 ],
               ),

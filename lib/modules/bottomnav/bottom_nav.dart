@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
-import 'package:food_receipe_app/modules/bottomnav/controller/nav_controller.dart';
+import 'package:food_receipe_app/modules/bottomnav/provider/nav_provider.dart';
 import 'package:food_receipe_app/modules/dashboard/dashboard_screen.dart';
 import 'package:food_receipe_app/modules/food%20receipe/search_recipe.dart';
 import 'package:food_receipe_app/modules/notification/notification_screen.dart';
@@ -16,14 +16,10 @@ import 'package:icons_plus/icons_plus.dart';
 class UserNavBar extends ConsumerWidget {
   UserNavBar({super.key});
 
-  // final NavController nav = Get.put(NavController());
   List<IconData> iconList = [
-    // AppIcons.home,
     Icons.home,
     Icons.bookmark_outline,
-    // AppIcons.notification,
     Icons.notifications_none,
-    // AppIcons.profile,
     FontAwesome.user
   ];
 
@@ -59,7 +55,7 @@ class UserNavBar extends ConsumerWidget {
           child: const Padding(
               padding: EdgeInsets.all(18.0),
               child: Icon(
-                FontAwesome.plus_solid,
+                Icons.search,
                 color: Colors.white,
               )),
         ),
@@ -107,27 +103,10 @@ class BottomNavigationBarWidget extends ConsumerWidget {
       activeColor: ColorConstants.primaryColor,
       gapLocation: GapLocation.center,
       notchSmoothness: NotchSmoothness.softEdge,
-      // onTap: (index) => navController.updateNav(index),
       onTap: (index) {
         nav.updateNav(index);
         Navigator.pop(context);
-        // if (index == 0) {
-        //   // If home icon is tapped (index 0), navigate to the home route
-        //   Navigator.pushAndRemoveUntil(
-        //     context,
-        //     MaterialPageRoute(
-        //       builder: (ctx) => UserNavBar(),
-        //     ), // replace with the route name for your home page
-        //     (route) => false, // remove all routes from the stack
-        //   );
-        // } else {
-        //   // For other icons, update the navigation index as usual
-        //   navController.updateNav(index);
-        // }
       },
-      // other params
-
-      //other params
     );
   }
 }
@@ -155,7 +134,7 @@ class CartFloatingIcon extends StatelessWidget {
         child: const Padding(
             padding: EdgeInsets.all(18.0),
             child: Icon(
-              FontAwesome.plus_solid,
+              Icons.search,
               color: Colors.white,
             )),
       ),

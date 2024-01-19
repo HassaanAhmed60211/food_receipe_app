@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_receipe_app/configs/constants/assets_configs/assets_constants.dart';
 import 'package:food_receipe_app/configs/constants/color_constants.dart';
 import 'package:food_receipe_app/configs/extensions/buildcontext_extensions.dart';
 import 'package:food_receipe_app/core/core_widgets/custom_field.dart';
+import 'package:food_receipe_app/modules/food%20receipe/fdrecipe_provider.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/bottom_sheet.dart';
 
 // ignore: must_be_immutable
-class TopSearchBar extends StatelessWidget {
-  TopSearchBar({super.key});
-  TextEditingController searchController = TextEditingController();
+class TopSearchBar extends ConsumerWidget {
+  const TopSearchBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final frRead = ref.read(frProvider);
     return Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -20,9 +22,12 @@ class TopSearchBar extends StatelessWidget {
           SizedBox(
             width: context.screenWidth * 0.6,
             child: customTextField(
+              onChanged: (value) {
+                frRead.searchValue(value);
+              },
               height: 55,
               hintText: 'Search recipe',
-              controller: searchController,
+              controller: frRead.searchController,
               prefixIcon: const Padding(
                 padding: EdgeInsets.only(top: 15, bottom: 19),
                 child: Icon(

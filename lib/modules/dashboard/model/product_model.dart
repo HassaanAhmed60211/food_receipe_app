@@ -2,8 +2,9 @@ class ProductModel {
   String name;
   String time;
   String image;
+  String chef;
 
-  ProductModel(this.name, this.time, this.image);
+  ProductModel(this.name, this.time, this.image, this.chef);
 }
 
 class RecipeModel {

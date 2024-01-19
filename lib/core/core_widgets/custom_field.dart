@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 Widget customTextField({
   bool isReadOnly = false,
+  final ValueChanged<String>? onChanged,
   VoidCallback? ontpap,
   colorBorder = Colors.grey,
   required controller,
@@ -36,7 +37,7 @@ Widget customTextField({
     ),
     child: TextField(
       // maxLength: maxLengthText,
-
+      onChanged: onChanged,
       onTapOutside: (e) {
         FocusNode().unfocus();
       },

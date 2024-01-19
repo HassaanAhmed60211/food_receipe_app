@@ -5,8 +5,10 @@ import 'package:food_receipe_app/core/core_widgets/core_text.dart';
 import 'package:food_receipe_app/core/core_widgets/spaces.dart';
 import 'package:food_receipe_app/modules/food%20receipe/widgets/top_rating.dart';
 
+// ignore: must_be_immutable
 class TopIngridentImage extends StatelessWidget {
-  const TopIngridentImage({super.key});
+  String img;
+  TopIngridentImage({super.key, required this.img});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +19,7 @@ class TopIngridentImage extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        image: const DecorationImage(
-            image: AssetImage(
-              'assets/images/ingrident_item.png',
-            ),
-            fit: BoxFit.cover),
+        image: DecorationImage(image: AssetImage(img), fit: BoxFit.cover),
       ),
       child: Container(
         height: context.screenHeight * 0.2,

@@ -10,8 +10,14 @@ import 'package:food_receipe_app/modules/ingrident/widgets/ingrident_tab.dart';
 import 'package:food_receipe_app/modules/ingrident/widgets/procedure_tab.dart';
 import 'package:food_receipe_app/modules/ingrident/widgets/top_ingrident.dart';
 
+// ignore: must_be_immutable
 class IngridentPage extends StatefulWidget {
-  const IngridentPage({super.key});
+  String img;
+  String title;
+  String name;
+
+  IngridentPage(
+      {super.key, required this.img, required this.title, required this.name});
 
   @override
   State<IngridentPage> createState() => _IngridentPageState();
@@ -31,7 +37,7 @@ class _IngridentPageState extends State<IngridentPage> {
             length: 2,
             child: Column(
               children: [
-                const TopIngridentImage(),
+                TopIngridentImage(img: widget.img),
                 Spaces.smallh,
                 Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +47,7 @@ class _IngridentPageState extends State<IngridentPage> {
                         width: context.screenWidth * 0.58,
                         child: customTextWidget(
                             lineHeight: 1.5,
-                            text: 'Spicy chicken burger with French fries',
+                            text: widget.title,
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
                       ),
@@ -63,7 +69,7 @@ class _IngridentPageState extends State<IngridentPage> {
                         fit: BoxFit.fitWidth,
                       )),
                   title: customTextWidget(
-                      text: 'Laura wilson',
+                      text: widget.name.substring(3),
                       fontSize: 16,
                       fontWeight: FontWeight.w600),
                   subtitle: Row(
