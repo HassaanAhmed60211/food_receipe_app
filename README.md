@@ -1,3 +1,3 @@
 # food_receipe_app
 
-![InShot_20240117_224955032-ezgif com-optimize](https://github.com/HassaanAhmed60211/food_receipe_app/assets/106430586/78b9741e-146e-483f-b9f8-11fba4e0230a)
+![Screen Recording 2024-01-24 at 12 03 54 AM](https://github.com/HassaanAhmed60211/food_receipe_app/assets/106430586/bb827d4e-ce44-4f82-8b73-99f5438fef78)
